@@ -1,0 +1,91 @@
+{
+  "___movimentacao": {
+    "data_insercao": "",
+    "valor": "",
+    "pessoa_id": "objectId",
+    "tranferencia": {
+      "conta_origem_id": "objectId",
+      "conta_destino_id": "objectId",
+      "data": "",
+      "descricao": "",
+      "valor": ""
+    },
+    "recebimento": [
+      {
+        "recebido": true,
+        "data_a_receber": "",
+        "data_recebimento": "",
+        "servico": [
+          {
+            "atendimento": {},
+            "lanche_infantil": {}
+          }
+        ],
+        "compra": {
+          "produtos": [
+            {
+              "kit_refeicao": "",
+              "kit_polpa": "",
+              "kit_sopas": ""
+            }
+          ]
+        }
+      }
+    ],
+    "despesa": {
+      "pago": true,
+      "despesa_fixa": {
+      },
+      "despesa_variavel": {
+        "imposto": "",
+        "recurso_humano": ""
+      }
+    }
+  },
+  //
+  "___pessoa": {
+    "tipo": [
+      "funcionario",
+      "cliente",
+      "fornecedor"
+    ],
+    "datanascimento": "",
+    "contato": {
+      "e-mail": "",
+      "telefones": [
+        {
+          "tipo": "comercial",
+          "numero": ""
+        }
+      ]
+    },
+    "endereco": {
+      "estado": "",
+      "cidade": "",
+      "logradouro": "",
+      "número": "",
+      "complemento": "",
+      "bairro": "",
+      "cep": ""
+    },
+    "descricao": "",
+    "pessoa_fisica": {
+      "nome": "",
+      "cpf": ""
+    },
+    "pessoa_jurídica": {
+      "nome_fantasia": "",
+      "razao_social": "",
+      "cnpj": "",
+      "incricao_estadual": ""
+    }
+  },
+  //
+  "___conta_bancaria": [
+    {
+      "conta": "",
+      "tipo_conta": "",
+      "saldo_inicial": ""
+    }
+  ]
+}
