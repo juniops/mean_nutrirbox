@@ -57,3 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
+.idea/
+"README (c\303\263pia).md"
+.gitignore
