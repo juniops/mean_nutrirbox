@@ -21,8 +21,8 @@ export class SettingsService {
         // App Settings
         // -----------------------------------
         this.app = {
-            name: 'Angle',
-            description: 'Angular Bootstrap Admin Template',
+            name: 'Nutrirbox',
+            description: 'sistema de gestao nutrirbox',
             year: ((new Date()).getFullYear())
         };
 

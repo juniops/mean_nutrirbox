@@ -14,6 +14,7 @@
             <li *ngFor='let item of menuItems' [ngClass]="{'nav-heading': item.heading}" [routerLinkActive]="['active']">
                 <!-- menu heading -->
                 <span *ngIf="item.heading">{{(item.translate | translate) || item.text}}</span>
+
                 <!-- external links -->
                 <a *ngIf="!item.heading && !item.submenu && item.elink" [attr.target]="item.target" [attr.href]="item.elink" title="{{item.text}}">
                     <span class="pull-right" *ngIf="item.alert" [ngClass]="item.label || 'label label-success'">{{item.alert}}</span>
