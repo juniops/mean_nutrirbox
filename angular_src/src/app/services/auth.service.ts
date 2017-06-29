@@ -16,7 +16,7 @@ export class AuthService {
     registerUser(user) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let ep = this.prepEndpoint('http://localhost:8080/users/register');
+        let ep = this.prepEndpoint('users/register');
         return this.http.post(ep, user, {headers: headers})
             .map(res => res.json());
     }
@@ -24,7 +24,7 @@ export class AuthService {
     authenticateUser(user) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let ep = this.prepEndpoint('http://localhost:8080/users/authenticate');
+        let ep = this.prepEndpoint('users/authenticate');
         return this.http.post(ep, user, {headers: headers})
             .map(res => res.json());
     }
@@ -34,7 +34,7 @@ export class AuthService {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        let ep = this.prepEndpoint('http://localhost:8080/users/profile');
+        let ep = this.prepEndpoint('users/profile');
         return this.http.get(ep, {headers: headers})
             .map(res => res.json());
     }
@@ -63,9 +63,9 @@ export class AuthService {
 
     prepEndpoint(ep) {
         if (this.isDev) {
-            return ep;
-        } else {
             return 'http://localhost:8080/' + ep;
+        } else {
+            return ep;
         }
     }
 }
