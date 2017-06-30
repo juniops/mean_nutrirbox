@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const config = require('./config/database');
 
 // Connect To Database
+// mongoose.Promise = global.Promise;
 mongoose.connect(config.database,{useMongoClient: true });
 
 // On Connection
@@ -21,8 +22,6 @@ mongoose.connection.on('error', (err) => {
 
 const app = express();
 
-const users = require('./routes/users');
-app.use('/users', users);
 
 // Port Number
 const port = process.env.PORT || 8080;
@@ -35,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false })); // support encoded bodies
 
 // Passport Middleware
 app.use(passport.initialize());
@@ -42,6 +42,9 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
+// User Route
+const users = require('./routes/users');
+app.use('/users', users);
 
 // Index Route
 app.get('/', (req, res) => {
