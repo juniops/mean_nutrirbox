@@ -10,10 +10,12 @@ import { UserblockService } from './sidebar/userblock/userblock.service';
 import { FooterComponent } from './footer/footer.component';
 
 import { SharedModule } from '../shared/shared.module';
+import {FlashMessagesModule} from 'angular2-flash-messages';
 
 @NgModule({
     imports: [
-        SharedModule
+        SharedModule,
+        FlashMessagesModule
     ],
     providers: [
         UserblockService

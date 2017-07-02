@@ -1,5 +1,6 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { Router } from '@angular/router';
+import {AuthService} from '../../services/auth.service';
 declare var $: any;
 
 import { MenuService } from '../../core/menu/menu.service';
