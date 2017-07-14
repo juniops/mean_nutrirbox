@@ -8,29 +8,28 @@ const config = require('./config/database');
 
 // Connect To Database
 // mongoose.Promise = global.Promise;
-mongoose.connect(config.database,{useMongoClient: true });
-
+mongoose.connect(config.database);
 // On Connection
 mongoose.connection.on('connected', () => {
-  console.log('Connected to database '+config.database);
+    console.log('Connected to database '+config.database);
 });
-
 // On Error
 mongoose.connection.on('error', (err) => {
-  console.log('Database error: '+err);
+    console.log('Database error: '+err);
 });
 
 const app = express();
 
-
 // Port Number
 const port = process.env.PORT || 8080;
 
-// CORS Middleware
-app.use(cors());
+
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+// CORS Middleware
+app.use(cors());
 
 // Body Parser Middleware
 app.use(bodyParser.json());
