@@ -5,7 +5,21 @@
 
             <div class="panel-heading">Cadastrar Clientes</div>
 
-            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()"  formControlName="name" novalidate>
+                <label>Appears Once:</label>
+                <input type="text" formControlName="appearsOnce" />
+
+                <div formArrayName="formArray">
+                    <div *ngFor="let control of myForm.controls['formArray'].controls; let i = index">
+                        <button type="button" (click)="delInput(i)">Delete</button>
+                        <my-form-sub-component [myForm]="myForm.controls.formArray.controls[i]"></my-form-sub-component>
+                    </div>
+                </div>
+                <button type="button" (click)="addInput()">Add</button>
+                <button type="submit" [disabled]="!myForm.valid">Save</button>
+            </form>
+
+            <form>
 
                 <div class="panel-body">
 
@@ -20,15 +34,6 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="text" formControlName="appearsOnce" />
-
-                        <div formArrayName="formArray">
-                            <div *ngFor="let control of myForm.controls['formArray'].controls; let i = index">
-                                <button type="button" (click)="delInput(i)">Delete</button>
-                                <my-form-sub-component [myForm]="myForm.controls.formArray.controls[i]"></my-form-sub-component>
-                            </div>
-                        </div>
-
                         <!--<label>Telefone</label>-->
                         <!--<input class="form-control" placeholder="digite o telefone" type="tel">-->
                     </div>

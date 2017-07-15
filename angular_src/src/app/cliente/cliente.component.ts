@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
+import {FormGroup, FormArray, FormBuilder} from '@angular/forms';
 
 @Component({
     selector: 'app-cliente',
@@ -7,7 +7,7 @@ import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
     styleUrls: ['cliente.component.scss']
 })
 export class ClienteComponent implements OnInit {
-    // @Input() inputArray: ArrayType[];
+    @Input() inputArray: string[];
     myForm: FormGroup;
 
     constructor(private fb: FormBuilder) {
@@ -15,12 +15,12 @@ export class ClienteComponent implements OnInit {
     }
 
     ngOnInit() {
-        let newForm = this.fb.group({
-            appearsOnce: ['InitialValue', [Validators.required, Validators.maxLength(25)]],
-            formArray: this.fb.array([])
-        });
-
-        const arrayControl = <FormArray>newForm.controls['formArray'];
+        // let newForm = this.fb.group({
+        //     appearsOnce: ['InitialValue', [Validators.required, Validators.maxLength(25)]],
+        //     formArray: this.fb.array([])
+        // });
+        //
+        // const arrayControl = <FormArray>newForm.controls['formArray'];
         // this.inputArray.forEach(item => {
         //     let newGroup = this.fb.group({
         //         itemPropertyOne: ['InitialValue', [Validators.required]],
@@ -28,15 +28,16 @@ export class ClienteComponent implements OnInit {
         //     });
         //     arrayControl.push(newGroup);
         // });
-
-        this.myForm = newForm;
+        //
+        // this.myForm = newForm;
     }
+
 
     addInput(): void {
         const arrayControl = <FormArray>this.myForm.controls['formArray'];
         let newGroup = this.fb.group({
-            itemPropertyOne: ['InitialValue', [Validators.required]],
-            itemPropertyTwo: ['InitialValue', [Validators.minLength(5), Validators.maxLength(20)]]
+            // itemPropertyOne: ['InitialValue', [Validators.required]],
+            // itemPropertyTwo: ['InitialValue', [Validators.minLength(5), Validators.maxLength(20)]]
         });
         arrayControl.push(newGroup);
     }

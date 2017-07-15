@@ -63,7 +63,7 @@ export class AuthService {
 
     prepEndpoint(ep) {
         if (this.isDev) {
-            return 'http://localhost:8080/' + ep;
+            return 'http://localhost:8081/' + ep;
         } else {
             return ep;
         }
