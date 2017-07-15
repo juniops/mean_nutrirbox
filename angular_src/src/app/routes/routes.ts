@@ -11,11 +11,11 @@ export const routes = [
     component: LayoutComponent,
     children: [
       {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'home', loadChildren: './home/home.module#HomeModule', canActivate:[AuthGuard]},
+      {path: 'home', loadChildren: './home/home.module#HomeModule'},
       {path:'register', component: RegisterComponent},
       {path:'login', component: LoginComponent},
-      {path:'profile', component: ProfileComponent, canActivate:[AuthGuard]},
-      {path: 'cliente', loadChildren: '../cliente/cliente.module#ClienteModule', canActivate:[AuthGuard]}
+      {path:'profile', component: ProfileComponent},
+      {path: 'cliente', loadChildren: '../cliente/cliente.module#ClienteModule'}
     ]
   },
 

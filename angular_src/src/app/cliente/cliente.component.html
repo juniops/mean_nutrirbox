@@ -1,41 +1,93 @@
 <div class="row">
-  <div class="col-sm-6">
+    <div class="col-sm-6">
 
-    <div class="panel panel-default">
-      <div class="panel-heading">Cadastrar Clientes</div>
+        <div class="panel panel-default">
 
-      <div class="panel-body">
-        <form novalidate="" role="form" class="ng-untouched ng-pristine ng-valid">
+            <div class="panel-heading">Cadastrar Clientes</div>
 
-          <div class="form-group">
-            <label>Nome</label>
-            <input class="form-control" placeholder="digite o nome" type="text">
-          </div>
+            <form [formGroup]="myForm" (ngSubmit)="onSubmit()" novalidate>
 
-          <div class="form-group">
-            <label>E-mail</label>
-            <input class="form-control" placeholder="digite o e-mail" type="email">
-          </div>
+                <div class="panel-body">
 
-          <div class="form-group">
-            <label>Telefone</label>
-            <input class="form-control" placeholder="digite o telefone" type="tel">
-          </div>
+                    <div class="form-group">
+                        <label>Nome</label>
+                        <input class="form-control" placeholder="digite o nome" type="text">
+                    </div>
 
-          <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i> cadastrar cliente</button>
-        </form>
-      </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input class="form-control" placeholder="digite o e-mail" type="email">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" formControlName="appearsOnce" />
+
+                        <div formArrayName="formArray">
+                            <div *ngFor="let control of myForm.controls['formArray'].controls; let i = index">
+                                <button type="button" (click)="delInput(i)">Delete</button>
+                                <my-form-sub-component [myForm]="myForm.controls.formArray.controls[i]"></my-form-sub-component>
+                            </div>
+                        </div>
+
+                        <!--<label>Telefone</label>-->
+                        <!--<input class="form-control" placeholder="digite o telefone" type="tel">-->
+                    </div>
+
+                    <div class="form-group">
+                        <label>Data de Nascimento</label>
+                        <input class="form-control" placeholder="digite o telefone" type="tel">
+                    </div>
+
+
+                </div>
+
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label>Estado</label>
+                        <input class="form-control" placeholder="digite o nome" type="text">
+                    </div>
+
+                    <div class="form-group">
+                        <label>cidade</label>
+                        <input class="form-control" placeholder="digite o e-mail" type="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>logradouro</label>
+                        <input class="form-control" placeholder="digite o telefone" type="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label>número</label>
+                        <input class="form-control" placeholder="digite o telefone" type="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label>bairro</label>
+                        <input class="form-control" placeholder="digite o telefone" type="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label>complemento</label>
+                        <input class="form-control" placeholder="digite o telefone" type="tel">
+                    </div>
+
+                </div>
+
+                <button class="btn btn-sm btn-primary" type="submit"><i class="fa fa-save"></i> cadastrar cliente
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Lista</div>
+            <div class="panel-body">
+            </div>
+        </div>
 
     </div>
-  </div>
-
-  <div class="col-sm-6">
-
-    <div class="panel panel-default">
-      <div class="panel-heading">Visula</div>
-      <div class="panel-body">
-      </div>
-    </div>
-
-  </div>
 </div>
